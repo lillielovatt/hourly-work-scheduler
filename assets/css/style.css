@@ -26,7 +26,7 @@ textarea {
 }
 
 .time-block {
-    text-align: center;
+    /* text-align: center; */
     border-radius: 15px;
 }
 
@@ -49,12 +49,12 @@ textarea {
 }
 
 .present {
-    background-color: #ff6961;
+    background-color: #eb8dd6e4;
     color: white;
 }
 
 .future {
-    background-color: #77dd77;
+    background-color: #87f287c4;
     color: white;
 }
 
@@ -69,4 +69,27 @@ textarea {
 .saveBtn i:hover {
     font-size: 20px;
     transition: all .3s ease-in-out;
+}
+
+#italics{
+    font-style: italic;
+}
+#currentDay{
+    font-size: 2rem;
+}
+p{
+    margin-top:10px;
+}
+.p-hour-task {
+    height: 100%;
+    width: 100%;
+}
+.time-by-hour{
+    font-size: 2rem;
+    /* border: 1px solid black; */
+    padding: 5px 5px 5px 5px;
+    margin: 5px;
+}
+.time-block{
+    border: 1px solid black;
 }

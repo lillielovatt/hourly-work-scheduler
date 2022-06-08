@@ -1,9 +1,13 @@
-HOURLY WORK SCHEDULER
+***HOURLY WORK SCHEDULER***
+
 By: Lillie Lovatt
+
 6/6/2022
 
-GitHub Repo URL:
-GitHub Page URL:
+GitHub Repo URL: https://github.com/lillielovatt/hourly-work-scheduler
+
+GitHub Page URL: https://lillielovatt.github.io/hourly-work-scheduler/
+
 
 Still need to: fix "refresh page without refresh"
 comment code in script file

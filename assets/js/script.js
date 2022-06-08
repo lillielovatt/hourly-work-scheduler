@@ -62,14 +62,33 @@ function checkTime() {
     // if startTimeEl has an hour less than Moment(), turn it GREY, add class past - can remove specific with "classList.remove("class name")"
     // if startTimeEl has an hour that matches Moment(), turn it PINK, add class present
     // if startTimeEl has an hour greater than Moment(), turn it BLUE, add class future
+    for(var i=5; i<=23; i++){
+        var hourBlockId = "hour-block-"+i;
+        var hourId = "hour-"+i;
+        var hourBlock = document.getElementById(hourBlockId);
+        var hour = document.getElementById(hourId);
 
+        var currentHour = moment({h:hour.textContent})
+
+        // if it's true that the currentHour is in the PAST, add appropriate class
+        if(currentHour.hour()===moment().hour()){
+            hourBlock.classList.add("present");
+        }else if(currentHour.isBefore(moment())){
+            hourBlock.classList.add("past");
+        } else if(currentHour.isAfter(moment())){
+            hourBlock.classList.add("future");
+        }
+
+    }
+    
     // if it's a new day, then run newDay()
 }
 
 // checks time every 30 minutes
 setInterval(function () {
+    console.log("time check");
     checkTime();
-}, (1000 * 60) * 30)
+}, (1000 * 60))
 
 // might not need this
 // function editHour(event){
@@ -199,6 +218,7 @@ $(".hour-task").on("blur", "textarea", function () {
 
 
 loadTasks();
+checkTime();
 // newDay()
 
 

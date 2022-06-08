@@ -19,6 +19,7 @@ textarea {
     color: black;
     border-radius: 0;
     border-bottom: 10px solid black;
+    font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 .description {
@@ -71,25 +72,39 @@ textarea {
     transition: all .3s ease-in-out;
 }
 
-#italics{
+#italics {
     font-style: italic;
 }
-#currentDay{
-    font-size: 2rem;
+
+#currentDay {
+    font-size: 2.5rem;
 }
-p{
-    margin-top:10px;
+
+p {
+    margin-top: 10px;
 }
+
 .p-hour-task {
     height: 100%;
     width: 100%;
+    font-size: 1.5rem;
 }
-.time-by-hour{
+
+.time-by-hour {
     font-size: 2rem;
-    /* border: 1px solid black; */
     padding: 5px 5px 5px 5px;
-    margin: 5px;
 }
-.time-block{
+
+.time-block {
     border: 1px solid black;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.time-block:hover {
+    -webkit-box-shadow: -10px -10px 30px 5px #EDFFC9;
+    box-shadow: -10px -10px 30px 10px #EDFFC9;
+}
+
+.container{
+    background-color: azure;
 }

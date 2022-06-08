@@ -1,11 +1,31 @@
 // date right now, in format 'Monday June 06, 2022'
 var timeNow = moment().format("dddd MMMM DD, YYYY");
-var displayDate = document.getElementById("currentDay")
+var displayDate = document.getElementById("currentDay");
 displayDate.innerText = timeNow;
 var timeContainerEl = document.querySelector(".container");
+var taskStorage=[];
 
-// var startTime = moment().set("hour",5).set("minute",0).format("HH:mm");
-// console.log(startTime);
+// if local storage does not yet have a current day (i.e. it is NULL), then add currentDay value of NOW
+// if currentDay in localStorage is NOT EQUAL to today, then update localStorage AND clear local storage by calling function
+if(!localStorage.getItem("currentDay") || moment(localStorage.getItem("currentDay")).format("MM DD, YYYY")!=moment().format("MM DD, YYYY")){
+    localStorage.setItem("currentDay",moment());
+    for(var i=5;i<=23;i++){
+        var taskHourDataObj = {
+            hour: i,
+            task:""
+        }
+        // fills taskStorage array with what is already in localStorage, or if there's nothing, initializes with an empty array.
+        taskStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+        // adds a new object to the array, which catalogues what the user entered as a task and for which hour.
+        taskStorage.push(taskHourDataObj);
+        // using taskStorage, which now has 1 more object than localStorage, we set an item "tasks" in localStorage
+        localStorage.setItem("tasks", JSON.stringify(taskStorage));
+    }
+} else if(moment(localStorage.getItem("currentDay")).format("MM DD, YYYY")!=moment().format("MM DD, YYYY")){
+    newDay();
+}
+
+
 
 var taskStorage = [];
 // want to create divs, from 5am, to 11pm. this will need to reset every day, when the next day begins.
@@ -132,35 +152,31 @@ function newDay() {
     
     // change the date at the top of the page
     displayDate.innerText = moment().format("dddd MMMM DD, YYYY");
+
+    localStorage.setItem("currentDay",moment());
 }
 
 // takes user's new input for a task, and the index (hour for which they added task), to save in localStorage for persistence
 function saveTasks(index, taskValue) {
-    // create local storage 
-    // takes index, which is the hour user edited, and taskValue, which is the value of the task used entered
-    var taskHourDataObj = {
-        hour: index,
-        task:taskValue
-    }
-    // fills taskStorage array with what is already in localStorage, or if there's nothing, initializes with an empty array.
-    taskStorage = JSON.parse(localStorage.getItem("tasks")) || [];
-    // adds a new object to the array, which catalogues what the user entered as a task and for which hour.
-    taskStorage.push(taskHourDataObj);
-    // using taskStorage, which now has 1 more object than localStorage, we set an item "tasks" in localStorage
-    localStorage.setItem("tasks", JSON.stringify(taskStorage));
+
+
+    var array = localStorage.getItem("tasks");
+    array=JSON.parse(array);
+    array[index-5].task=taskValue;
+    localStorage.setItem("tasks",JSON.stringify(array));
+
+
+
+    
 }
 
 // takes localStorage item "tasks" and loops through it to fill schedule by the hour with tasks
 function loadTasks(){
-    var savedTasks = localStorage.getItem("tasks");
-    // had this in my previous code, not sure why I need it
-    if(taskStorage===null){
-        return false;
+    if(localStorage.getItem("tasks")===null){
+        return;
     }
+    var savedTasks = localStorage.getItem("tasks");
     savedTasks=JSON.parse(savedTasks);
-    // console.log(savedTasks);
-    // console.log(savedTasks[1].name);
-    // console.log(savedTasks[1]);
     for(let i=0;i<savedTasks.length;i++){
         createTaskEl(savedTasks[i]);
     }
@@ -215,12 +231,24 @@ $(".hour-task").on("blur", "textarea", function () {
     $(this).replaceWith(taskP);
 })
 
-
-
 loadTasks();
 checkTime();
+
+
 // newDay()
 
 
-
+// // create local storage 
+    // // takes index, which is the hour user edited, and taskValue, which is the value of the task used entered
+    // var taskHourDataObj = {
+    //     hour: index,
+    //     task:taskValue
+    // }
+    // // fills taskStorage array with what is already in localStorage, or if there's nothing, initializes with an empty array.
+    // taskStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+    // console.log(taskStorage);
+    // // adds a new object to the array, which catalogues what the user entered as a task and for which hour.
+    // taskStorage.push(taskHourDataObj);
+    // // using taskStorage, which now has 1 more object than localStorage, we set an item "tasks" in localStorage
+    // localStorage.setItem("tasks", JSON.stringify(taskStorage));
 

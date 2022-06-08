@@ -2,6 +2,20 @@ HOURLY WORK SCHEDULER
 By: Lillie Lovatt
 6/6/2022
 
+GitHub Repo URL:
+GitHub Page URL:
+
+Still need to: fix "refresh page without refresh"
+comment code in script file
+potentially delete some code from style.css
+comment code in index.html
+README pretty, add pictures.
+
+
+
+
+
+
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively

@@ -1,4 +1,4 @@
-***HOURLY WORK SCHEDULER***
+#HOURLY WORK SCHEDULER
 
 By: Lillie Lovatt
 

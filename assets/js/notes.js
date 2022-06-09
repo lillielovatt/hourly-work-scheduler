@@ -255,3 +255,38 @@ checkTime();
 //         }
 //     ]
 // }
+
+// CSS STYLING THAT IS NOT USED, TAKEN OUT WITH NO ADVERSE EFFECTS
+
+// /* 
+// .past {
+//     background-color: #d3d3d3;
+//     color: white;
+// }
+
+// .present {
+//     background-color: #eb8dd6e4;
+//     color: white;
+// }
+
+// .future {
+//     background-color: #87f287c4;
+//     color: white;
+// } */
+
+// /* .saveBtn {
+//     border-left: 1px solid black;
+//     border-top-right-radius: 15px;
+//     border-bottom-right-radius: 15px;
+//     background-color: #06AED5;
+//     color: white;
+// }
+
+// .saveBtn i:hover {
+//     font-size: 20px;
+//     transition: all .3s ease-in-out;
+// } */
+
+// /* .description {
+//     white-space: pre-wrap;
+// } */

@@ -207,5 +207,6 @@ $(".hour-task").on("blur", "textarea", function () {
     $(this).replaceWith(taskP);
 })
 
+// when you first load page, loads tasks saved in local storage to populate hours, and checks time for the appropriate background color.
 loadTasks();
 checkTime();

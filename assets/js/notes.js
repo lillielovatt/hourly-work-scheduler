@@ -1,21 +1,16 @@
 // date right now, in format 'Monday June 06, 2022' - display at end of header
 var timeNow = moment().format("dddd MMMM DD, YYYY");
-var displayDay = document.getElementById("currentDay");
-displayDay.innerText = timeNow;
-
-var displayTime = document.getElementById("currentTime");
-displayTime.innerText = moment().format("HH:mm a");
-
+var displayDate = document.getElementById("currentDay");
+displayDate.innerText = timeNow;
 
 // select the container to fill with hour/task slots
 var timeContainerEl = document.querySelector(".container");
 // empty array for storage later; I initialize it to SOMETHING || [] but seems best to cover all bases.
 var taskStorage = [];
 
-// allows user to select which time to start and end day at--I think 5am to 7pm is good. 
-// Can easily add functionality later to allow user input and update dynamically
+// allows user to select which time to start and end day at--I think 5am to 11pm is good. Can easily add functionality later to allow user input and update dynamically
 var firstHour = 5;
-var lastHour = 19;
+var lastHour = 23;
 
 // if local storage does not yet have a current day (i.e. it is NULL), then add currentDay value of NOW and create initial storage array
 if (!localStorage.getItem("currentDay")) {
@@ -87,9 +82,6 @@ for (var i = firstHour; i <= lastHour; i++) {
 
 // functionality for background color of an hourBlock element to change, based on CURRENT HOUR (past, present, future)
 function checkTime() {
-    // updates time, hour:minutes
-    displayTime.innerText = moment().format("HH:mm a");
-
     // cycles through every hour, from firstHour to lastHour
     for (var i = firstHour; i <= lastHour; i++) {
         // using i index to select IDs of relevant elements below
@@ -126,7 +118,7 @@ function newDay() {
     // new day, new storage - clear out yesterday's saved tasks
     localStorage.clear();
     // change the date at the top of the page - this is called at the top of the code, but seems like a logical step to include here as well.
-    displayDay.innerText = moment().format("dddd MMMM DD, YYYY");
+    displayDate.innerText = moment().format("dddd MMMM DD, YYYY");
     // update new currentDay item 
     localStorage.setItem("currentDay", moment());
 }
@@ -209,3 +201,57 @@ $(".hour-task").on("blur", "textarea", function () {
 
 loadTasks();
 checkTime();
+
+
+ // hourBlock.classList.add("future");
+// hourBlock.classList.add("present");
+ // hourBlock.classList.add("past");
+
+// // create local storage
+    // // takes index, which is the hour user edited, and taskValue, which is the value of the task used entered
+    // var taskHourDataObj = {
+    //     hour: index,
+    //     task:taskValue
+    // }
+    // // fills taskStorage array with what is already in localStorage, or if there's nothing, initializes with an empty array.
+    // taskStorage = JSON.parse(localStorage.getItem("tasks")) || [];
+    // console.log(taskStorage);
+    // // adds a new object to the array, which catalogues what the user entered as a task and for which hour.
+    // taskStorage.push(taskHourDataObj);
+    // // using taskStorage, which now has 1 more object than localStorage, we set an item "tasks" in localStorage
+    // localStorage.setItem("tasks", JSON.stringify(taskStorage));
+
+// might not need this
+// function editHour(event){
+//     var targetEl = event.target;
+//     console.log(targetEl);
+//     console.log(targetEl.getAttribute('id'));
+// }
+// timeContainerEl.addEventListener("click",editHour);
+
+
+// need divs in class container to have 2 elements - a div that contains the hour on the left <p>, and a div that contains an editable area on the right + save button
+// ^can get that functionality from original kanban, since it involves elements that don't already exist.
+
+// function to save tasks and hours into local storage
+// function saveTasks() {
+//     // create an array, whereby 2 things are matched--the hour, and the text of the task.
+
+//     // index 0 - hour 5
+//     // index 1 - hour 6
+//     // ...
+//     // index 18 - hour 23
+
+//     // when you edit a task, you take the hour it's happening, you index at that hour--so [HOUR-5] index--
+//     // then insert the newly edited task as the value of the task key
+//     [
+//         {
+//             hour: "5",
+//             task: "some task blah"
+//         },
+//         {
+//             hour: "6",
+//             task: "some task"
+//         }
+//     ]
+// }

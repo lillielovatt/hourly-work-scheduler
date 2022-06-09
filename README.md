@@ -9,11 +9,13 @@ GitHub Repo URL: https://github.com/lillielovatt/hourly-work-scheduler
 GitHub Page URL: https://lillielovatt.github.io/hourly-work-scheduler/
 
 
-Still need to: fix "refresh page without refresh"
-comment code in script file
+Still need to: 
+
+comment code in script file 80% done
 potentially delete some code from style.css
 comment code in index.html
 README pretty, add pictures.
+add exact time in minutes using set interval, update dynamically.
 
 
 

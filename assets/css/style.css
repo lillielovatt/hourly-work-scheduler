@@ -22,9 +22,9 @@ textarea {
     font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
-.description {
+/* .description {
     white-space: pre-wrap;
-}
+} */
 
 .time-block {
     /* text-align: center; */
@@ -43,7 +43,7 @@ textarea {
     color: #000000;
     border-top: 1px dashed #000000;
 }
-
+/* 
 .past {
     background-color: #d3d3d3;
     color: white;
@@ -57,9 +57,9 @@ textarea {
 .future {
     background-color: #87f287c4;
     color: white;
-}
+} */
 
-.saveBtn {
+/* .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -70,7 +70,7 @@ textarea {
 .saveBtn i:hover {
     font-size: 20px;
     transition: all .3s ease-in-out;
-}
+} */
 
 #italics {
     font-style: italic;
@@ -105,3 +105,6 @@ p {
     box-shadow: -10px -10px 30px 10px #EDFFC9;
 }
 
+#currentTime{
+    font-size: 2rem;
+}
